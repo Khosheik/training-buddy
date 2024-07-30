@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import data from "../questions.json";
+import { Question } from './question.types';
 
 
 @Component({
@@ -10,5 +12,8 @@ import {MatCardModule} from '@angular/material/card';
   styleUrl: './question.component.scss'
 })
 export class QuestionComponent {
+  questions: Question[] = data as Question[]; 
+  code = "CODE"; 
+  text = "TEXT"; 
 
 }

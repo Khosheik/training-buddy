@@ -1,0 +1,29 @@
+[
+    {
+        "id": 0,
+        "questionText": "Which one of the following syntaxes gives access to the index of an element in an array when using *ngFor?", 
+        "questionType": "CHECKBOX", 
+        "answers": [
+            {
+                "id": "A",
+                "answerText": "*ngFor='\"let item of items | async\"", 
+                "answerType": "CODE"
+            }, 
+            {
+                "id": "B",
+                "answerText": "*ngFor=\"let item of items; index as i;\"", 
+                "answerType": "CODE"
+            },
+            {
+                "id": "C",
+                "answerText": "*ngFor=\"let item of items; use index;\"", 
+                "answerType": "CODE"
+            },
+            {
+                "id": "D",
+                "answerText": "*ngFor=\"let item of items; i = index;\"", 
+                "answerType": "CODE"
+            }
+        ]
+    }
+]

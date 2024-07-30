@@ -21,6 +21,7 @@ mat-card {
         margin: 1em;
         .question {
             font-weight: 500;
+            font-size: x-large;
         }
         form {
             display: flex;
@@ -36,7 +37,6 @@ mat-card {
 
                 code {
                     font-size: large;
-                    //background-color: rgb(208, 235, 235);
                     padding: 0.5em;
                     border-radius: 10px;
                 }
