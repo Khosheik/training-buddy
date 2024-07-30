@@ -2,7 +2,7 @@
     {
         "id": 0,
         "questionText": "Which one of the following syntaxes gives access to the index of an element in an array when using *ngFor?", 
-        "questionType": "CHECKBOX", 
+        "questionType": "RADIO", 
         "answers": [
             {
                 "id": "A",
@@ -23,6 +23,34 @@
                 "id": "D",
                 "answerText": "*ngFor=\"let item of items; i = index;\"", 
                 "answerType": "CODE"
+            }
+        ]
+    }, 
+    {
+        "id": 1,
+        "questionText": "How is AngularJS different from Angular? (multiple answers can be selected)", 
+        "questionType": "CHECKBOX", 
+
+        "answers": [
+            {
+                "id": "A",
+                "answerText": "Angular is written in TypeScript while Angular JS is written in JavaScript", 
+                "answerType": "TEXT"
+            }, 
+            {
+                "id": "B",
+                "answerText": "Angular JS does not support dependency injection", 
+                "answerType": "TEXT"
+            },
+            {
+                "id": "C",
+                "answerText": "Angular is a full-rewrite of Angular JS", 
+                "answerType": "TEXT"
+            },
+            {
+                "id": "D",
+                "answerText": "Angular JS does not support two-way bindings", 
+                "answerType": "TEXT"
             }
         ]
     }
