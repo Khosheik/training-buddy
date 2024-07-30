@@ -1,0 +1,58 @@
+mat-card {
+    margin: 1em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    mat-card-header {
+        padding: 1em;
+        color: white;
+        border-radius: 10px 10px 0 0;
+
+        mat-card-title {
+            font-weight: 500;
+        }
+
+        mat-card-subtitle {
+            color: rgba(255, 255, 255, 0.911);
+            margin-left: 1em;
+        }
+    }
+
+    mat-card-content {
+        margin: 1em;
+        .question {
+            font-weight: 500;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            
+            label {
+                padding: 1em;
+
+                span {
+                    font-weight: 500;
+                    padding: 0.5em;
+                }
+
+                code {
+                    font-size: large;
+                    //background-color: rgb(208, 235, 235);
+                    padding: 0.5em;
+                    border-radius: 10px;
+                }
+            }
+
+            button {
+                width: max-content;
+                padding: 1.5em;
+                display: block;
+                margin: auto;
+                border-radius: 5em;
+                border: none;
+                color: white;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+        }
+    }
+}

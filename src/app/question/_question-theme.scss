@@ -1,0 +1,23 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin theme($theme) {
+  mat-card {
+    font: mat.get-theme-typography($theme, display-small, font-family);
+  }
+
+  mat-card-header {
+    background-color: mat.get-theme-color($theme, primary, 70);
+  }
+
+  mat-card-content {
+    button {
+      background-color: mat.get-theme-color($theme, primary, 70);
+    }
+
+    code {
+      background-color: mat.get-theme-color($theme, tertiary, 90);
+    }
+  }
+
+}

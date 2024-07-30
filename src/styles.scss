@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use './app/question/question-theme' as question;
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$cyan-palette,
+    tertiary: mat.$azure-palette,
+  ),
+  typography: (
+    brand-family: 'Roboto',
+    plain-family: 'Roboto',
+    bold-weight: 900
+  ),
+  density: (
+    scale: -1
+  )
+));
+
+html {
+  @include mat.all-component-themes($theme);
+  @include question.theme($theme);
+}
