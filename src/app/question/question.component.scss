@@ -1,7 +1,7 @@
 mat-card {
     margin: 1em;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
     mat-card-header {
         padding: 1em;
         color: white;
@@ -19,40 +19,27 @@ mat-card {
 
     mat-card-content {
         margin: 1em;
+        display: flex;
+        flex-direction: column;
+
+        
+
+        span {
+            font-weight: 500;
+            padding: 0.5em;
+        }
+
+        code {
+            font-size: large;
+            padding: 0.5em;
+            border-radius: 10px;
+        }
+
         .question {
             font-weight: 500;
             font-size: larger;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            
-            label {
-                padding: 1em;
-
-                span {
-                    font-weight: 500;
-                    padding: 0.5em;
-                }
-
-                code {
-                    font-size: large;
-                    padding: 0.5em;
-                    border-radius: 10px;
-                }
-            }
-
-            button {
-                width: max-content;
-                padding: 1.5em;
-                display: block;
-                margin: auto;
-                border-radius: 5em;
-                border: none;
-                color: white;
-                text-transform: uppercase;
-                font-weight: 700;
-            }
+            line-height: normal;
+            padding-bottom: 1em;
         }
     }
 }

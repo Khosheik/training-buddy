@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import data from "../questions.json";
+import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { Question } from './question.types';
-
+import { QuizzService } from '../quizz.service';
 
 @Component({
   selector: 'tb-question',
   standalone: true,
-  imports: [MatCardModule],
+  imports: [MatCardModule, MatIconModule, MatCheckboxModule],
   templateUrl: './question.component.html',
   styleUrl: './question.component.scss'
 })
 export class QuestionComponent {
-  questions: Question[] = data as Question[]; 
+  @Input() question!: Question;
   code = "CODE"; 
-  text = "TEXT"; 
+  questions: Question[] = this.quizzService.questions;
+
+  constructor(private quizzService: QuizzService){}
 
 }

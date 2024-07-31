@@ -1,0 +1,28 @@
+<h1>Quizz Name</h1>
+
+<button mat-raised-button (click)="isEditable = !isEditable">
+  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+</button>
+
+<mat-stepper linear #stepper>
+
+  @for(questionAndFormGroup of questionAndFormGroupArray; track questionAndFormGroup) {
+  <mat-step [stepControl]="questionAndFormGroup.formGroup" [editable]="isEditable">
+    <form [formGroup]="questionAndFormGroup.formGroup">
+      <tb-question [question]="questionAndFormGroup.question" />
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  }
+
+
+  <mat-step>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
