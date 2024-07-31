@@ -22,6 +22,14 @@ mat-card {
         display: flex;
         flex-direction: column;
 
+        mat-radio-group {
+            display: flex;
+            flex-direction: column;
+            mat-radio-button {
+                padding-bottom: 1em;
+            }
+        }
+
         span {
             font-weight: 500;
             padding: 0.5em;

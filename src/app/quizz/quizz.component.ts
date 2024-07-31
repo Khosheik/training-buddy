@@ -39,7 +39,7 @@ export class QuizzComponent {
       const nameControl = `${questionNumber}${answer.id}Ctrl`;
       controlsNameList = {
         ...controlsNameList, 
-        [nameControl]: [null, Validators.required],
+        [nameControl]: [null],
       }
     }
     return controlsNameList;

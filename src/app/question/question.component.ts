@@ -2,13 +2,14 @@ import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 import { Question } from './question.types';
 import { QuizzService } from '../quizz.service';
 
 @Component({
   selector: 'tb-question',
   standalone: true,
-  imports: [MatCardModule, MatIconModule, MatCheckboxModule],
+  imports: [MatCardModule, MatIconModule, MatCheckboxModule, MatRadioModule],
   templateUrl: './question.component.html',
   styleUrl: './question.component.scss'
 })
