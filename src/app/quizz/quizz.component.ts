@@ -32,40 +32,33 @@ export class QuizzComponent {
   questions: Question[] | null = this.quizzService.getQuestions(0);
   quizzName: string | null = this.quizzService.getQuizzTitle(0);
 
-  question1: UntypedFormGroup = this.fb.group({});
-  question2: UntypedFormGroup = this.fb.group({});
+  questionFormGroups = {
+    question1: this.fb.group({}),
+    question2: this.fb.group({})
+  }
 
-  quizzForm = this.fb.group({
-    question1: this.question1,
-    question2: this.question2,
-  });
+  quizzForm = this.fb.group(this.questionFormGroups);
+
 
 
   constructor(private quizzService: QuizzService, private fb: FormBuilder) {
-    this.addControls(this.questions)
+    if (this.questions) {
+      this.addControls(this.questions, this.questionFormGroups);
+    }
   }
+
 
   submit(value: any) {
-    console.log("SUBMITTED")
-    console.log(value)
+    console.log('Submitted', value)
   }
 
-  addControls(questions: Question[] | null) {
-    if (questions) {
-      for (const question of questions) {
-        for (const option of question.options) {
-
-          if (option.key.includes('question1')) {
-            this.question1.addControl(`${option.key}Ctrl`, new FormControl(false))
-          } else {
-            this.question2.addControl(`${option.key}Ctrl`, new FormControl(false))
-          }
-        }
-
+  addControls(questions: Question[], questionFormGroups: any) {
+    for (const question of questions) {
+      for (const option of question.options) {
+        questionFormGroups[question.key].addControl(`${option.key}Ctrl`, new FormControl(false))
       }
     }
-
-    console.log(this.quizzForm)
   }
 
 }
+
