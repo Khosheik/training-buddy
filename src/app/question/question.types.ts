@@ -1,23 +1,23 @@
 export interface Question {
     id: number, 
-    questionNumber: string,
-    questionText: string, 
-    questionType: QuestionType,
-    answers: Answer[]
+    key: string,
+    label: string, 
+    type: QuestionType,
+    options: Option[]
   }
   
-  export interface Answer {
-    id: AnswerId, 
-    answerText: string,
-    answerType: AnswerType,
+  export interface Option {
+    key: OptionKey,
+    value: string,
+    type: OptionType,
   }
   
-  enum AnswerType {
+  enum OptionType {
     Code = "code", 
     Text = "span", 
   }
   
-  enum AnswerId {
+  enum OptionKey {
     A = "A", 
     B = "B", 
     C = "C", 

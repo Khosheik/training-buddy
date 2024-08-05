@@ -6,8 +6,22 @@ import { Question } from './question/question.types';
   providedIn: 'root'
 })
 export class QuizzService {
-  questions: Question[] = data as Question[]; 
 
+  getQuestions(quizzId: number): Question[] | null {
+    for (let datum of data) {
+      if (quizzId === datum.quizzId) {
+        return datum.questions as Question[];
+      }
+    }
+    return null;
+  };
 
-  constructor() { }
+  getQuizzTitle(quizzId: number): string | null {
+    for (let datum of data) {
+      if (quizzId === datum.quizzId) {
+        return datum.quizzName;
+      }
+    }
+    return null;
+  };
 }

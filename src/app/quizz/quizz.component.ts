@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, UntypedFormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, UntypedFormGroup } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { QuestionComponent } from '../question/question.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { QuizzService } from '../quizz.service';
-import { Question, Answer } from '../question/question.types';
+import { Question, Option } from '../question/question.types';
+import { FormGroupPipe } from '../form-group.pipe';
 
 interface QuestionAndFromGroup {
   question: Question, 
@@ -18,25 +20,51 @@ interface QuestionAndFromGroup {
     QuestionComponent,
     MatButtonModule,
     MatStepperModule,
-    FormsModule,
     ReactiveFormsModule,
+    MatCheckboxModule, 
+    FormGroupPipe
   ],
   templateUrl: './quizz.component.html',
-  styleUrl: './quizz.component.scss'
+  styleUrl: './quizz.component.scss',
 })
-export class QuizzComponent {
-  questions: Question[] = this.quizzService.questions;
+export class QuizzComponent implements OnInit {
+  questions: Question[] | null = this.quizzService.getQuestions(0);
+  quizzName: string | null = this.quizzService.getQuizzTitle(0);
   questionAndFormGroupArray: QuestionAndFromGroup[] = [];
   isEditable = false;
 
-  constructor(private quizzService: QuizzService, private fb: FormBuilder) { 
-    this.createQuestionAndFormGroupArray(this.questions);
+  question1: any = this.fb.group({
+    question1ACtrl: [false],
+    question1BCtrl: [false],
+    question1CCtrl: [false],
+    question1DCtrl: [false],
+  }); 
+  question2: any = this.fb.group({
+    question2ACtrl: [false],
+    question2BCtrl: [false],
+    question2CCtrl: [false],
+    question2DCtrl: [false],
+  }); 
+  
+  quizzForm: FormGroup = this.fb.group({
+    question1: this.question1, 
+    question2: this.question2,
+  });
+
+
+  constructor(private quizzService: QuizzService, private fb: FormBuilder) {
+
   }
 
-  createControls(answers: Answer[], questionNumber: string) {
+  ngOnInit() {
+    this.createQuestionAndFormGroupArray(this.questions);
+    //this.createQuizzForm(this.questionAndFormGroupArray)
+  }
+
+  createControls(options: Option[], questionKey: string) {
     let controlsNameList = {}
-    for(const answer of answers) {
-      const nameControl = `${questionNumber}${answer.id}Ctrl`;
+    for(const option of options) {
+      const nameControl = `${option.key}Ctrl`;
       controlsNameList = {
         ...controlsNameList, 
         [nameControl]: [null],
@@ -45,14 +73,38 @@ export class QuizzComponent {
     return controlsNameList;
   }
 
-  createQuestionAndFormGroupArray(questions: Question[]): void {
-    for(const question of questions){
-      this.questionAndFormGroupArray
-      this.questionAndFormGroupArray.push({
-        question, 
-        formGroup: this.fb.group(this.createControls(question.answers, question.questionNumber))
-      })
+  createQuestionAndFormGroupArray(questions: Question[] | null): void {
+    if(questions){
+      for(const question of questions){
+        const formGroup =  this.fb.group(this.createControls(question.options, question.key));
+        this.questionAndFormGroupArray.push({
+          question, 
+          formGroup,
+        })
+      }
     }
   }
 
-}
+  submit(value:any){
+    console.log("SUBMITTED")
+    console.log(value)
+  }
+
+
+  createQuizzForm(questionAndFromGroupArray: any) {
+    let formGroups = {}; 
+
+    for(let questionAndFormGroup of questionAndFromGroupArray) {
+      const formGroupName = questionAndFormGroup.question.key;
+      const formGroupControls = questionAndFormGroup.formGroup.controls;
+      formGroups = {
+        ...formGroups, 
+        [formGroupName]: this.fb.group(formGroupControls)
+      }
+    }
+
+    this.quizzForm = this.fb.group(formGroups)
+    console.log(this.quizzForm)
+
+    }
+  }

@@ -1,28 +1,16 @@
-<h1>Quizz Name</h1>
-
-<button mat-raised-button (click)="isEditable = !isEditable">
-  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
-</button>
-
-<mat-stepper linear #stepper>
-
-  @for(questionAndFormGroup of questionAndFormGroupArray; track questionAndFormGroup) {
-  <mat-step [stepControl]="questionAndFormGroup.formGroup" [editable]="isEditable">
-    <form [formGroup]="questionAndFormGroup.formGroup">
-      <tb-question [question]="questionAndFormGroup.question" />
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
+<h1>{{quizzName}}</h1>
+<form (ngSubmit)="submit(quizzForm.value)" [formGroup]="quizzForm">
+    <form [formGroup]="question1">
+        <mat-checkbox formControlName="question1ACtrl">1</mat-checkbox>
+        <mat-checkbox formControlName="question1BCtrl">2</mat-checkbox>
+        <mat-checkbox formControlName="question1CCtrl">3</mat-checkbox>
+        <mat-checkbox formControlName="question1DCtrl">4</mat-checkbox>
     </form>
-  </mat-step>
-  }
-
-
-  <mat-step>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-stepper>
+    <form [formGroup]="question2">
+        <mat-checkbox formControlName="question2ACtrl">5</mat-checkbox>
+        <mat-checkbox formControlName="question2BCtrl">6</mat-checkbox>
+        <mat-checkbox formControlName="question2CCtrl">7</mat-checkbox>
+        <mat-checkbox formControlName="question2DCtrl">8</mat-checkbox>
+    </form>
+    <button type="submit">Submit</button>
+</form>

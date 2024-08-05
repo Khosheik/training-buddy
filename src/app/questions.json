@@ -1,57 +1,63 @@
 [
     {
-        "id": 0,
-        "questionNumber": "question1",
-        "questionText": "Which one of the following syntaxes gives access to the index of an element in an array when using *ngFor?", 
-        "questionType": "RADIO", 
-        "answers": [
+        "quizzName": "Angular Lvl 1",
+        "quizzId": 0,
+        "questions": [
             {
-                "id": "A",
-                "answerText": "*ngFor='\"let item of items | async\"", 
-                "answerType": "CODE"
-            }, 
-            {
-                "id": "B",
-                "answerText": "*ngFor=\"let item of items; index as i;\"", 
-                "answerType": "CODE"
+                "id": 0,
+                "key": "question1",
+                "label": "Which one of the following syntaxes gives access to the index of an element in an array when using *ngFor?",
+                "type": "RADIO",
+                "options": [
+                    {
+                        "key": "question1A",
+                        "value": "*ngFor='\"let item of items | async\"",
+                        "type": "CODE"
+                    },
+                    {
+                        "key": "question1B",
+                        "value": "*ngFor=\"let item of items; index as i;\"",
+                        "type": "CODE"
+                    },
+                    {
+                        "key": "question1C",
+                        "value": "*ngFor=\"let item of items; use index;\"",
+                        "type": "CODE"
+                    },
+                    {
+                        "key": "question1D",
+                        "value": "*ngFor=\"let item of items; i = index;\"",
+                        "type": "CODE"
+                    }
+                ]
             },
             {
-                "id": "C",
-                "answerText": "*ngFor=\"let item of items; use index;\"", 
-                "answerType": "CODE"
-            },
-            {
-                "id": "D",
-                "answerText": "*ngFor=\"let item of items; i = index;\"", 
-                "answerType": "CODE"
-            }
-        ]
-    }, 
-    {
-        "id": 1,
-        "questionNumber": "question2", 
-        "questionText": "How is AngularJS different from Angular? (multiple answers can be selected)", 
-        "questionType": "CHECKBOX", 
-        "answers": [
-            {
-                "id": "A",
-                "answerText": "Angular is written in TypeScript while Angular JS is written in JavaScript", 
-                "answerType": "TEXT"
-            }, 
-            {
-                "id": "B",
-                "answerText": "Angular JS does not support dependency injection", 
-                "answerType": "TEXT"
-            },
-            {
-                "id": "C",
-                "answerText": "Angular is a full-rewrite of Angular JS", 
-                "answerType": "TEXT"
-            },
-            {
-                "id": "D",
-                "answerText": "Angular JS does not support two-way bindings", 
-                "answerType": "TEXT"
+                "id": 1,
+                "key": "question2",
+                "label": "How is AngularJS different from Angular? (multiple answers can be selected)",
+                "type": "CHECKBOX",
+                "options": [
+                    {
+                        "key": "question2A",
+                        "value": "Angular is written in TypeScript while Angular JS is written in JavaScript",
+                        "type": "TEXT"
+                    },
+                    {
+                        "id": "question2B",
+                        "value": "Angular JS does not support dependency injection",
+                        "type": "TEXT"
+                    },
+                    {
+                        "id": "question2C",
+                        "value": "Angular is a full-rewrite of Angular JS",
+                        "type": "TEXT"
+                    },
+                    {
+                        "id": "question2D",
+                        "value": "Angular JS does not support two-way bindings",
+                        "type": "TEXT"
+                    }
+                ]
             }
         ]
     }
