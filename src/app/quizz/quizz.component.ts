@@ -8,9 +8,8 @@ import { QuizzService } from '../quizz.service';
 import { Question } from '../question/question.types';
 import { FormGroupPipe } from '../form-group.pipe';
 
-interface QuestionAndFromGroup {
-  question: Question,
-  formGroup: UntypedFormGroup,
+interface QuestionFormGroups {
+  [name: string]: FormGroup
 }
 
 @Component({
@@ -32,21 +31,17 @@ export class QuizzComponent {
   questions: Question[] | null = this.quizzService.getQuestions(0);
   quizzName: string | null = this.quizzService.getQuizzTitle(0);
 
-  questionFormGroups = {
-    question1: this.fb.group({}),
-    question2: this.fb.group({})
-  }
-
-  quizzForm = this.fb.group(this.questionFormGroups);
-
-
+  questionFormGroups: QuestionFormGroups = {};
+  quizzForm!: FormGroup;
 
   constructor(private quizzService: QuizzService, private fb: FormBuilder) {
     if (this.questions) {
+      this.createQuestionFormGroups(this.questions);
+      this.makeQuizzForm();
       this.addControls(this.questions, this.questionFormGroups);
+
     }
   }
-
 
   submit(value: any) {
     console.log('Submitted', value)
@@ -58,7 +53,21 @@ export class QuizzComponent {
         questionFormGroups[question.key].addControl(`${option.key}Ctrl`, new FormControl(false))
       }
     }
+
+    console.log('quizzform', this.quizzForm)
   }
 
+  createQuestionFormGroups(questions: Question[]) {
+    for (const question of questions) {
+      this.questionFormGroups = {
+        ...this.questionFormGroups,
+        [question.key]: this.fb.group({})
+      }
+    }
+  }
+
+  makeQuizzForm() {
+    this.quizzForm = this.fb.group(this.questionFormGroups)
+  }
 }
 
