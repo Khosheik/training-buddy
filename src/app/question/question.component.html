@@ -7,36 +7,10 @@
     </mat-card-header>
     <mat-card-content>
         <h3 class="question">{{question.label}}</h3>
-
-        @if(question.type === "CHECKBOX"){
-        @for(option of question.options; track option) {
-        <mat-checkbox [name]="option.key">
-            <span>{{option.key}}.</span>
-            @if(option.type === code) {
-            <code>{{option.value}}</code>
+        <form [formGroup]="form">
+            @for(option of question.options; track option){
+                <mat-checkbox [formControlName]="option.key + 'Ctrl'">{{option.value}}</mat-checkbox>
             }
-            @else {
-            {{option.value}}
-            }
-        </mat-checkbox>
-        }
-        }
-
-        @else if (question.type === "RADIO") {
-        <mat-radio-group aria-label="Select an option" [id]="question.id" name="test2">
-            @for(option of question.options; track option.key) {
-            <mat-radio-button [name]="option.key">
-                <span>{{option.key}}.</span>
-                @if(option.type === code) {
-                <code>{{option.value}}</code>
-                }
-                @else {
-                {{option.value}}
-                }
-            </mat-radio-button>
-            }
-        </mat-radio-group>
-        }
-
+        </form>
     </mat-card-content>
 </mat-card>

@@ -43,17 +43,17 @@
                         "type": "TEXT"
                     },
                     {
-                        "id": "question2B",
+                        "key": "question2B",
                         "value": "Angular JS does not support dependency injection",
                         "type": "TEXT"
                     },
                     {
-                        "id": "question2C",
+                        "key": "question2C",
                         "value": "Angular is a full-rewrite of Angular JS",
                         "type": "TEXT"
                     },
                     {
-                        "id": "question2D",
+                        "key": "question2D",
                         "value": "Angular JS does not support two-way bindings",
                         "type": "TEXT"
                     }

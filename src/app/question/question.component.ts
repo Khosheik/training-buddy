@@ -5,23 +5,24 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { Question } from './question.types';
 import { QuizzService } from '../quizz.service';
-import { UntypedFormGroup } from '@angular/forms';
+import { FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'tb-question',
   standalone: true,
-  imports: [MatCardModule, MatIconModule, MatCheckboxModule, MatRadioModule],
+  imports: [MatCardModule, MatIconModule, MatCheckboxModule, MatRadioModule, ReactiveFormsModule],
   templateUrl: './question.component.html',
   styleUrl: './question.component.scss'
 })
 export class QuestionComponent {
   @Input() question!: Question;
-
-  code = "CODE"; 
   questions: Question[] = this.quizzService.getQuestions(0) as Question[];
+  form: any;
 
-  constructor(private quizzService: QuizzService){
+  constructor(private quizzService: QuizzService, private rootFormGroup: FormGroupDirective){}
+
+  ngOnInit(): void {
+    this.form = this.rootFormGroup.form.controls[this.question.key]
   }
-
 
 }

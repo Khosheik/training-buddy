@@ -1,16 +1,7 @@
 <h1>{{quizzName}}</h1>
 <form (ngSubmit)="submit(quizzForm.value)" [formGroup]="quizzForm">
-    <form [formGroup]="question1">
-        <mat-checkbox formControlName="question1ACtrl">1</mat-checkbox>
-        <mat-checkbox formControlName="question1BCtrl">2</mat-checkbox>
-        <mat-checkbox formControlName="question1CCtrl">3</mat-checkbox>
-        <mat-checkbox formControlName="question1DCtrl">4</mat-checkbox>
-    </form>
-    <form [formGroup]="question2">
-        <mat-checkbox formControlName="question2ACtrl">5</mat-checkbox>
-        <mat-checkbox formControlName="question2BCtrl">6</mat-checkbox>
-        <mat-checkbox formControlName="question2CCtrl">7</mat-checkbox>
-        <mat-checkbox formControlName="question2DCtrl">8</mat-checkbox>
-    </form>
+    @for(question of questions; track question){
+        <tb-question [question]="question" /> 
+    }
     <button type="submit">Submit</button>
 </form>
