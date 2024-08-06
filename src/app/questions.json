@@ -11,19 +11,19 @@
                 "type": "RADIO",
                 "options": [
                     {
-                        "key": "question1A",
+                        "key": "A",
                         "value": "*ngFor='\"let item of items | async\""
                     },
                     {
-                        "key": "question1B",
+                        "key": "B",
                         "value": "*ngFor=\"let item of items; index as i;\""
                     },
                     {
-                        "key": "question1C",
+                        "key": "C",
                         "value": "*ngFor=\"let item of items; use index;\""
                     },
                     {
-                        "key": "question1D",
+                        "key": "D",
                         "value": "*ngFor=\"let item of items; i = index;\""
                     }
                 ], 
@@ -37,19 +37,19 @@
                 "type": "CHECKBOX",
                 "options": [
                     {
-                        "key": "question2A",
+                        "key": "A",
                         "value": "Angular is written in TypeScript while Angular JS is written in JavaScript"
                     },
                     {
-                        "key": "question2B",
+                        "key": "B",
                         "value": "Angular JS does not support dependency injection"
                     },
                     {
-                        "key": "question2C",
+                        "key": "C",
                         "value": "Angular is a full-rewrite of Angular JS"
                     },
                     {
-                        "key": "question2D",
+                        "key": "D",
                         "value": "Angular JS does not support two-way bindings"
                     }
                 ], 

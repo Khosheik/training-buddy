@@ -30,13 +30,7 @@ mat-card {
             }
         }
 
-        span {
-            font-weight: 500;
-            padding: 0.5em;
-        }
-
         .code {
-            font-size: large;
             padding: 0.5em;
             border-radius: 10px;
         }
@@ -48,8 +42,4 @@ mat-card {
             padding-bottom: 1em;
         }
     }
-}
-
-.code {
-background-color: red;
 }

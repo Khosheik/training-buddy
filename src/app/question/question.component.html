@@ -11,11 +11,15 @@
             @for(option of question.options; track option) {
 
             @if(question.type === "CHECKBOX") {
-            <mat-checkbox [formControlName]="option.key + 'Ctrl'"><div [class.code]="checkIfCode(question)">{{option.value}}</div></mat-checkbox>
+            <mat-checkbox [formControlName]="question.key + option.key + 'Ctrl'">
+                <div [class.code]="checkIfCode(question)">{{option.value}}</div>
+            </mat-checkbox>
             }
             @else {
             <mat-radio-group [formControlName]="question.key">
-                <mat-radio-button [value]="option.key"><div [class.code]="checkIfCode(question)">{{option.value}}</div></mat-radio-button>
+                <mat-radio-button [value]="option.key">
+                    <div [class.code]="checkIfCode(question)">{{option.value}}</div>
+                </mat-radio-button>
             </mat-radio-group>
             }
             }
