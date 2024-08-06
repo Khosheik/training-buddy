@@ -2,6 +2,7 @@ export interface Question {
     id: number, 
     key: string,
     label: string, 
+    theme: string, 
     type: QuestionType,
     options: Option[]
   }

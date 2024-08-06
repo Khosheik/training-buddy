@@ -7,6 +7,7 @@
                 "id": 0,
                 "key": "question1",
                 "label": "Which one of the following syntaxes gives access to the index of an element in an array when using *ngFor?",
+                "theme": "Directives", 
                 "type": "RADIO",
                 "options": [
                     {
@@ -35,6 +36,7 @@
                 "id": 1,
                 "key": "question2",
                 "label": "How is AngularJS different from Angular? (multiple answers can be selected)",
+                "theme": "Basics", 
                 "type": "CHECKBOX",
                 "options": [
                     {
