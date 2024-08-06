@@ -1,7 +1,4 @@
 <h1>{{quizzName}}</h1>
 <form (ngSubmit)="submit(quizzForm.value)" [formGroup]="quizzForm">
-    @for(question of questions; track question){
-        <tb-question [question]="question" /> 
-    }
-    <button type="submit">Submit</button>
+    <tb-stepper />
 </form>

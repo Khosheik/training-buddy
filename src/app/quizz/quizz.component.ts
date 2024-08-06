@@ -7,6 +7,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { QuizzService } from '../quizz.service';
 import { Question } from '../question/question.types';
 import { FormGroupPipe } from '../form-group.pipe';
+import { StepperComponent } from '../stepper/stepper.component';
 
 interface QuestionFormGroups {
   [name: string]: FormGroup
@@ -21,8 +22,9 @@ interface QuestionFormGroups {
     MatStepperModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    FormGroupPipe
-  ],
+    FormGroupPipe,
+    StepperComponent
+],
   templateUrl: './quizz.component.html',
   styleUrl: './quizz.component.scss',
 })
