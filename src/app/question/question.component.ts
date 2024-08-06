@@ -18,11 +18,17 @@ export class QuestionComponent {
   @Input() question!: Question;
   questions: Question[] = this.quizzService.getQuestions(0) as Question[];
   form: any;
+  isCode: boolean = false;
 
   constructor(private quizzService: QuizzService, private rootFormGroup: FormGroupDirective){}
 
   ngOnInit(): void {
     this.form = this.rootFormGroup.form.controls[this.question.key]
+    
+  }
+
+  checkIfCode(question: Question) {
+    return question.optionsType === 'CODE' ? true : false;
   }
 
 }

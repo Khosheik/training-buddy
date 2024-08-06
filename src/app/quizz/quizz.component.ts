@@ -49,10 +49,15 @@ export class QuizzComponent {
 
   addControls(questions: Question[], questionFormGroups: any) {
     for (const question of questions) {
-      for (const option of question.options) {
-        questionFormGroups[question.key].addControl(`${option.key}Ctrl`, new FormControl(false))
+      if (question.type === "CHECKBOX") {
+        for (const option of question.options) {
+          questionFormGroups[question.key].addControl(`${option.key}Ctrl`, new FormControl(false))
+        }
+      } else if (question.type === "RADIO") {
+        questionFormGroups[question.key].addControl(`${question.key}`, new FormControl(false))
       }
     }
+
 
     console.log('quizzform', this.quizzForm)
   }

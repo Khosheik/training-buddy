@@ -12,25 +12,22 @@
                 "options": [
                     {
                         "key": "question1A",
-                        "value": "*ngFor='\"let item of items | async\"",
-                        "type": "CODE"
+                        "value": "*ngFor='\"let item of items | async\""
                     },
                     {
                         "key": "question1B",
-                        "value": "*ngFor=\"let item of items; index as i;\"",
-                        "type": "CODE"
+                        "value": "*ngFor=\"let item of items; index as i;\""
                     },
                     {
                         "key": "question1C",
-                        "value": "*ngFor=\"let item of items; use index;\"",
-                        "type": "CODE"
+                        "value": "*ngFor=\"let item of items; use index;\""
                     },
                     {
                         "key": "question1D",
-                        "value": "*ngFor=\"let item of items; i = index;\"",
-                        "type": "CODE"
+                        "value": "*ngFor=\"let item of items; i = index;\""
                     }
-                ]
+                ], 
+                "optionsType": "CODE"
             },
             {
                 "id": 1,
@@ -41,25 +38,22 @@
                 "options": [
                     {
                         "key": "question2A",
-                        "value": "Angular is written in TypeScript while Angular JS is written in JavaScript",
-                        "type": "TEXT"
+                        "value": "Angular is written in TypeScript while Angular JS is written in JavaScript"
                     },
                     {
                         "key": "question2B",
-                        "value": "Angular JS does not support dependency injection",
-                        "type": "TEXT"
+                        "value": "Angular JS does not support dependency injection"
                     },
                     {
                         "key": "question2C",
-                        "value": "Angular is a full-rewrite of Angular JS",
-                        "type": "TEXT"
+                        "value": "Angular is a full-rewrite of Angular JS"
                     },
                     {
                         "key": "question2D",
-                        "value": "Angular JS does not support two-way bindings",
-                        "type": "TEXT"
+                        "value": "Angular JS does not support two-way bindings"
                     }
-                ]
+                ], 
+                "optionsType": "TEXT"
             }
         ]
     }

@@ -4,18 +4,18 @@ export interface Question {
     label: string, 
     theme: string, 
     type: QuestionType,
-    options: Option[]
+    options: Option[], 
+    optionsType: OptionType,
   }
   
   export interface Option {
     key: OptionKey,
     value: string,
-    type: OptionType,
   }
   
   enum OptionType {
-    Code = "code", 
-    Text = "span", 
+    Code = "CODE", 
+    Text = "TEXT", 
   }
   
   enum OptionKey {
