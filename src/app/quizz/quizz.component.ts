@@ -1,17 +1,14 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, UntypedFormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { QuestionComponent } from '../question/question.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { QuizzService } from '../quizz.service';
 import { Question } from '../question/question.types';
-import { FormGroupPipe } from '../form-group.pipe';
 import { StepperComponent } from '../stepper/stepper.component';
 
-interface QuestionFormGroups {
-  [name: string]: FormGroup
-}
+type QuestionFormGroups = Record<string, FormGroup>;
 
 @Component({
   selector: 'tb-quizz',
@@ -22,7 +19,6 @@ interface QuestionFormGroups {
     MatStepperModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    FormGroupPipe,
     StepperComponent
 ],
   templateUrl: './quizz.component.html',
@@ -45,11 +41,11 @@ export class QuizzComponent {
     }
   }
 
-  submit(value: any) {
+  submit(value: object) {
     console.log('Submitted', value)
   }
 
-  addControls(questions: Question[], questionFormGroups: any) {
+  addControls(questions: Question[], questionFormGroups: QuestionFormGroups) {
     for (const question of questions) {
       if (question.type === "CHECKBOX") {
         for (const option of question.options) {

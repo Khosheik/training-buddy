@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { QuizzComponent } from "./quizz/quizz.component";
 
 @Component({
-  selector: 'app-root',
+  selector: 'tb-root',
   standalone: true,
   imports: [RouterOutlet, QuizzComponent],
   templateUrl: './app.component.html',

@@ -8,7 +8,7 @@ import { Question } from './question/question.types';
 export class QuizzService {
 
   getQuestions(quizzId: number): Question[] | null {
-    for (let datum of data) {
+    for (const datum of data) {
       if (quizzId === datum.quizzId) {
         return datum.questions as Question[];
       }
@@ -17,7 +17,7 @@ export class QuizzService {
   };
 
   getQuizzTitle(quizzId: number): string | null {
-    for (let datum of data) {
+    for (const datum of data) {
       if (quizzId === datum.quizzId) {
         return datum.quizzName;
       }

@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import {MatStepperModule} from '@angular/material/stepper';
 import { QuestionComponent } from "../question/question.component";
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { FormGroupDirective } from '@angular/forms';
 import { QuizzService } from '../quizz.service';
 import {MatButtonModule} from '@angular/material/button'; 
 import { ReactiveFormsModule } from '@angular/forms';
